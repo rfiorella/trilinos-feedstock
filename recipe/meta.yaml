@@ -42,6 +42,14 @@ requirements:
     - kokkos ==4.5.01
     - kokkos-kernels ==4.5.01
 
+test:
+  commands:
+    - test -f $PREFIX/include/TeuchosCore_ConfigDefs.hpp        # [unix]
+    - test -f $PREFIX/lib/libteuchoscore.{{ version }}.dylib    # [osx]
+    - test -f $PREFIX/lib/libteuchoscore.so.{{ version }}       # [linux]
+    - if not exist %PREFIX%\\Library\\include\\TeuchosCore_ConfigDefs.hpp exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\lib\\teuchoscore.lib exit 1  # [win]
+
 outputs:
   - name: trilinos
     files:
@@ -65,14 +73,6 @@ outputs:
     files:
       - lib/python*/site-packages/PyTrilinos/**
       - lib/libPyTrilinos*
-
-test:
-  commands:
-    - test -f $PREFIX/include/TeuchosCore_ConfigDefs.hpp        # [unix]
-    - test -f $PREFIX/lib/libteuchoscore.{{ version }}.dylib    # [osx]
-    - test -f $PREFIX/lib/libteuchoscore.so.{{ version }}       # [linux]
-    - if not exist %PREFIX%\\Library\\include\\TeuchosCore_ConfigDefs.hpp exit 1  # [win]
-    - if not exist %PREFIX%\\Library\\lib\\teuchoscore.lib exit 1  # [win]
 
 about:
   home: https://trilinos.org
