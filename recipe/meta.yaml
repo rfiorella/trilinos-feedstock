@@ -10,7 +10,7 @@ source:
 
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
 
 requirements:
@@ -41,8 +41,30 @@ requirements:
     # trilinos cmake expects specific kokkos/kokkos-kernels versions
     - kokkos ==4.5.01
     - kokkos-kernels ==4.5.01
-  run_constrained:
-    - pytrilinos ==999999999
+
+outputs:
+  - name: trilinos
+    files:
+      - lib/libtrilinos*.dylib
+      - lib/libtrilinos*.so
+      - include/**
+      - lib/cmake/Trilinos/**
+    build:
+      run_exports:
+        - {{ pin_subpackage('trilinos', max_pin='x.x') }}
+  - name: pytrilinos
+    requirements:
+      host:
+        - {{ pin_subpackage('trilinos', exact=True) }}
+        - python
+        - numpy
+      run:
+        - {{ pin_subpackage('trilinos', exact=True) }}
+        - python
+        - numpy
+    files:
+      - lib/python*/site-packages/PyTrilinos/**
+      - lib/libPyTrilinos*
 
 test:
   commands:
