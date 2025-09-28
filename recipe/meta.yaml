@@ -26,7 +26,7 @@ requirements:
     - liblapack
     - {{ mpi }}  # [unix]
     - libboost-devel
-    - scikit-umfpack <0.4
+    - scikit-umfpack
     - netcdf-cxx4
     - libmatio
     - xorg-libx11
@@ -34,13 +34,15 @@ requirements:
     # trilinos cmake expects specific kokkos/kokkos-kernels versions
     - kokkos ==4.5.01
     - kokkos-kernels ==4.5.01
+    - {{ pin_compatible('numpy') }}
   run:
     - {{ mpi }}  # [unix]
     - libboost-devel
-    - scikit-umfpack <0.4
+    - scikit-umfpack
     # trilinos cmake expects specific kokkos/kokkos-kernels versions
     - kokkos ==4.5.01
     - kokkos-kernels ==4.5.01
+    - {{ pin_compatible('numpy') }}
 
 test:
   commands:
