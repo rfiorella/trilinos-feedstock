@@ -71,6 +71,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pytrilinos-green.svg)](https://anaconda.org/conda-forge/pytrilinos) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pytrilinos.svg)](https://anaconda.org/conda-forge/pytrilinos) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pytrilinos.svg)](https://anaconda.org/conda-forge/pytrilinos) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pytrilinos.svg)](https://anaconda.org/conda-forge/pytrilinos) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-trilinos-green.svg)](https://anaconda.org/conda-forge/trilinos) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/trilinos.svg)](https://anaconda.org/conda-forge/trilinos) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/trilinos.svg)](https://anaconda.org/conda-forge/trilinos) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/trilinos.svg)](https://anaconda.org/conda-forge/trilinos) |
 
 Installing trilinos
@@ -83,41 +84,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `trilinos` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `pytrilinos, trilinos` can be installed with `conda`:
 
 ```
-conda install trilinos
-```
-
-or with `mamba`:
-
-```
-mamba install trilinos
-```
-
-It is possible to list all of the versions of `trilinos` available on your platform with `conda`:
-
-```
-conda search trilinos --channel conda-forge
+conda install pytrilinos trilinos
 ```
 
 or with `mamba`:
 
 ```
-mamba search trilinos --channel conda-forge
+mamba install pytrilinos trilinos
+```
+
+It is possible to list all of the versions of `pytrilinos` available on your platform with `conda`:
+
+```
+conda search pytrilinos --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search pytrilinos --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search trilinos --channel conda-forge
+mamba repoquery search pytrilinos --channel conda-forge
 
-# List packages depending on `trilinos`:
-mamba repoquery whoneeds trilinos --channel conda-forge
+# List packages depending on `pytrilinos`:
+mamba repoquery whoneeds pytrilinos --channel conda-forge
 
-# List dependencies of `trilinos`:
-mamba repoquery depends trilinos --channel conda-forge
+# List dependencies of `pytrilinos`:
+mamba repoquery depends pytrilinos --channel conda-forge
 ```
 
 
