@@ -21,7 +21,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - numpy >2
+    - numpy
   host:
     - libblas
     - liblapack
@@ -35,7 +35,7 @@ requirements:
     # trilinos cmake expects specific kokkos/kokkos-kernels versions
     - kokkos ==4.5.01
     - kokkos-kernels ==4.5.01
-    - numpy >2
+    - numpy
   run:
     - {{ mpi }}  # [unix]
     - libboost-devel
