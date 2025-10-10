@@ -36,6 +36,8 @@ requirements:
     - kokkos ==4.5.01
     - kokkos-kernels ==4.5.01
     - numpy
+    - python {{ python }}
+    - python_abi * *_cp313  # [py=313]
   run:
     - {{ mpi }}  # [unix]
     - libboost-devel
@@ -44,6 +46,8 @@ requirements:
     - kokkos ==4.5.01
     - kokkos-kernels ==4.5.01
     - {{ pin_compatible('numpy') }}
+    - python
+    - python_abi * *_cp313  # [py=313]
 
 test:
   commands:
