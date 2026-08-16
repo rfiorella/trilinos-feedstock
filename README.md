@@ -1,9 +1,9 @@
-About trilinos-split-feedstock
-==============================
+About pytrilinos-feedstock
+==========================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/trilinos-feedstock/blob/main/LICENSE.txt)
 
-Home: https://trilinos.org
+Home: https://trilinos.org/
 
 Package license: BSD-3-Clause
 
@@ -123,41 +123,83 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pytrilinos-green.svg)](https://anaconda.org/conda-forge/pytrilinos) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pytrilinos.svg)](https://anaconda.org/conda-forge/pytrilinos) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pytrilinos.svg)](https://anaconda.org/conda-forge/pytrilinos) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pytrilinos.svg)](https://anaconda.org/conda-forge/pytrilinos) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-trilinos-green.svg)](https://anaconda.org/conda-forge/trilinos) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/trilinos.svg)](https://anaconda.org/conda-forge/trilinos) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/trilinos.svg)](https://anaconda.org/conda-forge/trilinos) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/trilinos.svg)](https://anaconda.org/conda-forge/trilinos) |
 
-Installing trilinos-split
-=========================
+Installing pytrilinos
+=====================
 
-Installing `trilinos-split` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `pytrilinos` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `pytrilinos, trilinos` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install pytrilinos trilinos
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install pytrilinos trilinos
 ```
 
-It is possible to list all of the versions of `pytrilinos` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add pytrilinos trilinos
+# for installing globally
+pixi global install pytrilinos trilinos
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `pytrilinos` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search pytrilinos --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search pytrilinos --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search pytrilinos --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -169,6 +211,8 @@ mamba repoquery whoneeds pytrilinos --channel conda-forge
 # List dependencies of `pytrilinos`:
 mamba repoquery depends pytrilinos --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
@@ -212,17 +256,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating trilinos-split-feedstock
-=================================
+Updating pytrilinos-feedstock
+=============================
 
-If you would like to improve the trilinos-split recipe or build a new
+If you would like to improve the pytrilinos recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/trilinos-split-feedstock are
+Note that all branches in the conda-forge/pytrilinos-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
