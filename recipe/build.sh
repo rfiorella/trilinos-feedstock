@@ -42,7 +42,14 @@ cd build
 export CMAKE_GENERATOR="Ninja"
 
 if [[ "${target_platform}" == osx-* ]]; then
-    export CXXFLAGS="${CXXFLAGS} -stdlib=libc++ -D_LIBCPP_DISABLE_AVAILABILITY"
+    # Sacado specializes std::is_same / std::is_same_v for its Kokkos layout
+    # types (Kokkos_LayoutContiguous.hpp, Kokkos_LayoutNatural.hpp, ...). The
+    # current libc++ marks those std entities with [[clang::no_specializations]],
+    # which turns this long-standing specialization into a hard error under the
+    # -Winvalid-specialization group (DefaultError). libstdc++ (linux) has no
+    # such marker, so only osx is affected. Suppress the group to restore the
+    # previous behavior; the specialization is intentional and semantically fine.
+    export CXXFLAGS="${CXXFLAGS} -stdlib=libc++ -D_LIBCPP_DISABLE_AVAILABILITY -Wno-invalid-specialization"
 fi
 
 export MPI_FLAGS="--allow-run-as-root"
